@@ -3,6 +3,8 @@
 build/
 dist/
 htmlcov/
+.vscode/
+.pytest_cache/
 text_colors-master/
 .tox
 __pycache__/
