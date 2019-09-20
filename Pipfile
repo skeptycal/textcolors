@@ -10,6 +10,7 @@ pytest-cov = "*"
 coverage = "*"
 
 [packages]
+textcolors = {editable = true,path = "."}
 
 [requires]
 python_version = "3.7"
