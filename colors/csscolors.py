@@ -5,7 +5,7 @@ Map of CSS color names to RGB integer values.
 import re
 import sys
 
-_PY2 = sys.version_info[0] == 2
+_PY2 = sys.version_info[0] < 3
 string_types = basestring if _PY2 else str
 
 
