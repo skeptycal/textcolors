@@ -4,14 +4,13 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-pytest = "*"
+autopep8 = "*"
 pylint = "*"
+pytest = "*"
 pytest-cov = "*"
 coverage = "*"
 
 [packages]
-textcolors = {editable = true,path = "."}
-pygments = "*"
 
 [requires]
 python_version = "3.7"

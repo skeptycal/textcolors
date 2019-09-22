@@ -4,10 +4,16 @@ from __future__ import print_function
 
 # make sure we're testing colors module in this dir, not system
 from .colors import color, COLORS, STYLES
+import syspy
 
 import sys
 import os
 sys.path.insert(0, os.path.abspath('.'))
+
+# Turn off color when using ipython, otherwise leave it on
+ENABLE_COLOR: bool = True
+if syspy.py_shell() in ["ipython", "ipython-notebook"]:
+    ENABLE_COLOR = False
 
 
 def test_styles(bg, fg):

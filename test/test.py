@@ -95,14 +95,18 @@ def test_error_on_bad_style():
 def test_remove_color():
     """We can get the original message without the colors"""
     assert strip_color(color("RED", "red")) == "RED"
-    assert strip_color(color("text", "red", "green", "bold+underline")) == "text"
+    assert strip_color(color("text", "red", "green",
+                             "bold+underline")) == "text"
 
 
 def test_remove_color_extra():
     """Test other sequences that color would not add, but that are seen in the wild."""
-    assert strip_color('some\x1b[Kthing') == 'something' # remove EL (erase to end of line)
-    assert strip_color('some\x1b[mthing') == 'something' # remove truncated style ending
-    assert strip_color('some\x1b[49;39mthing') == 'something' # remove odd color ends
+    assert strip_color(
+        'some\x1b[Kthing') == 'something'  # remove EL (erase to end of line)
+    # remove truncated style ending
+    assert strip_color('some\x1b[mthing') == 'something'
+    # remove odd color ends
+    assert strip_color('some\x1b[49;39mthing') == 'something'
 
 
 def test_ansilen():
@@ -138,9 +142,9 @@ def test_partial_functions():
 def test_doc_example():
     """Text examples given in documentation"""
     assert color('my string', fg='blue') == \
-           '\x1b[34mmy string\x1b[0m'
+        '\x1b[34mmy string\x1b[0m'
     assert color('some text', fg='red', bg='yellow', style='underline') == \
-           '\x1b[31;43;4msome text\x1b[0m'
+        '\x1b[31;43;4msome text\x1b[0m'
 
 
 def test_custom_partial():

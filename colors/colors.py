@@ -1,6 +1,7 @@
 
 
 from __future__ import absolute_import, print_function
+from functools import partial
 import re
 import sys
 from .csscolors import parse_rgb, css_colors
@@ -8,7 +9,8 @@ from .csscolors import parse_rgb, css_colors
 _PY2 = sys.version_info[0] == 2
 string_types = basestring if _PY2 else str
 
-from functools import partial
+template = '\x1b[{0}m{1}\x1b[0m'
+
 
 # ANSI color names. There is also a "default"
 COLORS = ('black', 'red', 'green', 'yellow', 'blue',
